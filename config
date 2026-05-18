@@ -4,7 +4,7 @@
     "sway/workspaces",
     "sway/mode",
     "sway/scratchpad",
-    "sway/window",
+    "sway/window"
   ],
   "modules-center": [
     "custom/media"
@@ -15,7 +15,6 @@
     "pulseaudio",
     "cpu",
     "memory",
-    "temperature",
     "battery",
     "network",
     "clock",
@@ -34,21 +33,23 @@
       "",
       ""
     ],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
+    "tooltip": false
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+    "format": "<span style=\"italic\">{}</span>",
+		"tooltip": false
   },
   "sway/window": {
     "format": "{title}",
-    "max-length": 20
+    "max-length": 20,
+		"tooltip": false
   },
   "custom/media": {
     "format": "{}",
     "escape": true,
     "return-type": "json",
     "max-length": 65,
+		"tooltip": false,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl stop",
     "smooth-scrolling-threshold": 10,
@@ -66,33 +67,21 @@
   },
   "tray": {
     "icon-size": 12,
-    "spacing": 13
+    "spacing": 13,
+		"tooltip": false
   },
   "clock": {
     "format": " {:%a %d %b    %H:%M:%S}",
-    "format-alt": " {:%d/%m/%Y  %H:%M}",
     "interval": 1,
-    "tooltip": false,
+    "tooltip": false
   },
   "cpu": {
     "format": " {usage: >3}%",
+		"tooltip": false
   },
   "memory": {
     "format": " {: >3}%",
-  },
-  "temperature": {
-    "thermal-zone": 6,
-    "critical-threshold": 80,
-    "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "tooltip": false,
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+		"tooltip": false
   },
   "backlight": {
     "format": "{icon}{percent: >3}%",
@@ -113,6 +102,7 @@
     "format": "{icon} {capacity: >3}%",
     "format-plugged": "{capacity}% ",
     "format-charging": "{capacity}% ",
+		"tooltip": false,
     "format-icons": [
       " ",
       " ",
@@ -123,18 +113,10 @@
   },
   "network": {
     "format": "󰤮 Disabled",
-    "format-wifi": "{icon}{essid} ({signalStrength}%)",
-    "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+    "format-wifi": "{essid}@{ifname}: {ipaddr}/{cidr}",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
     "format-disconnected": "󰤮 Disconnected",
-    "tooltip-format": "{ifname} via {gwaddr}  ",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "format-icons": [
-      "󰤫 ",
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 ",
-      "󰤨 "
-    ]
+		"tooltip": false
   },
   "pulseaudio": {
     "scroll-step": 5,
